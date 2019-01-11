@@ -2,6 +2,7 @@ package com.easyqa.qa.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+
 import static com.codeborne.selenide.Selenide.page;
 
 public class LoginPage {
@@ -14,18 +15,28 @@ public class LoginPage {
     public SelenideElement loginBtn;
 
 
-    public void enterLogin(String userLogin) {
+    /*public void enterLogin(String userLogin) {
         login.clear();
         login.sendKeys(userLogin);
+
     }
 
     public void enterPassword(String userPassword) {
         password.clear();
         password.sendKeys(userPassword);
+            }*/
+
+    public void enterUser(String userEmail, String userPassword) {
+        login.click();
+        login.clear();
+        login.sendKeys(userEmail);
+        password.click();
+        password.clear();
+        password.sendKeys(userPassword);
     }
 
-    public DashboardPage clickLoginBtn(){
+    public DashboardPage clickLoginBtn() {
         loginBtn.click();
-        return  page(DashboardPage.class);
+        return page(DashboardPage.class);
     }
 }

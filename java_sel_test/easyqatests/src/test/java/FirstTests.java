@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import com.easyqa.qa.pages.*;
 import com.easyqa.qa.pages.util.CardData;
+import com.easyqa.qa.pages.util.UserData;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -39,9 +40,11 @@ public class FirstTests {
     @Test
     public void createCard() {
         CardData issue = new CardData("test2","test description");
+        UserData userData = new UserData("idustim@ya.ru","NK7050507");
         LoginPage loginPage = open("https://app.geteasyqa.com/users/sign_in", LoginPage.class);
-        loginPage.enterLogin("idustim@ya.ru");
-        loginPage.enterPassword("NK7050507");
+        loginPage.enterUser(userData.getUserEmail(), userData.getUserPassword());
+        /*loginPage.enterLogin("idustim@ya.ru");
+        loginPage.enterPassword("NK7050507");*/
         DashboardPage dashboardPage = loginPage.clickLoginBtn();
         dashboardPage.checkUserAuthorized();
         ProjectsPage projectPage = dashboardPage.openMyProjects();

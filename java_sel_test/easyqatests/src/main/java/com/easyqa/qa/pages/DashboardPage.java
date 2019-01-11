@@ -16,6 +16,7 @@ public class DashboardPage {
 
 
     public void checkUserAuthorized() {
+
         profileLink.shouldBe(Condition.visible);
     }
 
